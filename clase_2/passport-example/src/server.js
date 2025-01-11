@@ -9,6 +9,9 @@ import path from "path";
 import { viewsRouter } from "./routes/views.routes.js";
 import { sessionRouter } from "./routes/session.routes.js";
 
+import passport from "passport";
+import { initializePassport } from "./config/passport.config.js";
+
 const app = express();
 const SECRET = "clavesecreta";
 
@@ -16,7 +19,7 @@ const SECRET = "clavesecreta";
 const mongoUser = "emi";
 const mongoPassword = "1234";
 
-const mongoUrl = `mongodb+srv://${mongoUser}:${mongoPassword}@curso-nodejs.de1bv.gcp.mongodb.net/ch-session-70400?retryWrites=true&w=majority&appName=curso-nodejs`;
+const mongoUrl = ``;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -32,11 +35,12 @@ app.use(
     saveUninitialized: false,
   })
 );
+initializePassport();
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Mongo Connection
-connect(
-  `mongodb+srv://${mongoUser}:${mongoPassword}@curso-nodejs.de1bv.gcp.mongodb.net/ch-70400?retryWrites=true&w=majority&appName=curso-nodejs`
-)
+connect(``)
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.error(error));
 

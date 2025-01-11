@@ -16,7 +16,7 @@ const SECRET = "clavesecreta";
 const mongoUser = "emi";
 const mongoPassword = "1234";
 
-const mongoUrl = `mongodb+srv://${mongoUser}:${mongoPassword}@curso-nodejs.de1bv.gcp.mongodb.net/ch-session-70400?retryWrites=true&w=majority&appName=curso-nodejs`;
+const mongoUrl = ``;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,9 +34,7 @@ app.use(
 );
 
 // Mongo Connection
-connect(
-  `mongodb+srv://${mongoUser}:${mongoPassword}@curso-nodejs.de1bv.gcp.mongodb.net/ch-70400?retryWrites=true&w=majority&appName=curso-nodejs`
-)
+connect(``)
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.error(error));
 

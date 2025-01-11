@@ -18,9 +18,24 @@ viewsRouter.get("/login", (req, res) => {
 viewsRouter.get("/register", (req, res) => {
   const isSession = req.session.user ? true : false;
 
+  const { message } = req.query;
+
+  let messageRes;
+
+  if (message) {
+    switch (message) {
+      case "fail-register":
+        messageRes = "Falló el registro";
+        break;
+
+      default:
+        messageRes = "";
+    }
+  }
+
   if (isSession) return res.redirect("/profile");
 
-  res.render("register", { title: "Registro" });
+  res.render("register", { title: "Registro", message: messageRes });
 });
 
 viewsRouter.get("/profile", (req, res) => {

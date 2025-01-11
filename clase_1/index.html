@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Manager</title>
+  <script>
+    // Función para enviar una solicitud POST para crear la cookie
+    async function setCookie() {
+      const user = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      const response = await fetch('/set-cookie', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user, email })
+      });
+
+      const result = await response.json();
+      console.log(result);
+      alert(result.message);
+    }
+
+    // Función para enviar una solicitud GET para obtener la cookie
+    async function getCookie() {
+      const response = await fetch('/get-cookie');
+      const result = await response.json();
+      console.log(result);
+
+      if (result.status === 'success') {
+        alert(`Cookie: ${JSON.stringify(result.cookie)}`);
+      } else {
+        alert(result.message);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Cookie Manager</h1>
+  <form onsubmit="return false;">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" required>
+    <br>
+    <label for="email">Correo Electrónico:</label>
+    <input type="email" id="email" required>
+    <br><br>
+    <button type="button" onclick="setCookie()">Submit</button>
+    <button type="button" onclick="getCookie()">Get Cookie</button>
+  </form>
+</body>
+</html>

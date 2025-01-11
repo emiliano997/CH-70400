@@ -1,3 +1,9 @@
+{{#if message}}
+  <div class="alert alert-danger">
+    {{message}}
+  </div>
+{{/if}}
+
 <div class="m-3 bg-light rounded-4 p-3">
   <h1> Registro </h1>
   <form action="/api/sessions/register" method="POST">

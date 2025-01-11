@@ -11,7 +11,7 @@ const SECRET = "clavesecreta";
 // Mongo URL
 const mongoUser = "emi";
 const mongoPassword = "1234";
-const mongoUrl = `mongodb+srv://${mongoUser}:${mongoPassword}@curso-nodejs.de1bv.gcp.mongodb.net/ch-70400?retryWrites=true&w=majority&appName=curso-nodejs`;
+const mongoUrl = ``;
 
 app.use(cookieParser());
 
