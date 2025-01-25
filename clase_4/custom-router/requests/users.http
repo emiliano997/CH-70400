@@ -1,0 +1,15 @@
+### GET users
+
+GET http://localhost:5000/api/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiY2QiLCJlbWFpbCI6ImVtaUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3Mzc4MjkzMTMsImV4cCI6MTczNzgyOTYxM30.hLJ4W_Ies4okCVqwj7TBSrNAiXDaEwCTa4P7mjHJDY8
+
+### POST user
+
+POST http://localhost:5000/api/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFiY2QiLCJlbWFpbCI6ImVtaUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3Mzc4MjkzMTMsImV4cCI6MTczNzgyOTYxM30.hLJ4W_Ies4okCVqwj7TBSrNAiXDaEwCTa4P7mjHJDY8
+
+{
+    "name": "John Doe",
+    "age": 25
+}
