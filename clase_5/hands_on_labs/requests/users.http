@@ -1,0 +1,21 @@
+### GET users
+
+GET http://localhost:5000/api/users
+
+### GET user
+
+GET http://localhost:5000/api/users/d32ee70b-9cb6-4c64-a736-c862d17e7723
+
+### POST users
+
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+  "username": "john",
+  "email": "john@gmail.com",
+  "phone": "1234567890",
+  "toys": [
+    "a9fbdb20-2370-4601-b68a-679059fafcd7"
+  ]
+}
