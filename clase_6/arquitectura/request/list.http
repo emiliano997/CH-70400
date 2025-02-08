@@ -1,0 +1,20 @@
+### GET Lists
+
+GET http://localhost:5000/api/lists
+
+### GET List
+
+GET http://localhost:5000/api/lists/67a79f76d859846bca500a4
+
+### POST List
+
+POST http://localhost:5000/api/lists
+Content-Type: application/json
+
+{
+  "name": "List 1",
+  "description": "Description 1",
+  "contacts": [
+    "67a77ae45973a7671000545b"
+  ]
+}
