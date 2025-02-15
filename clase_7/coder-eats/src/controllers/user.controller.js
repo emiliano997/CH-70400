@@ -1,4 +1,8 @@
+import { smsService } from "../services/sms.service.js";
+import { mailService } from "../services/mail.service.js";
 import { userService } from "../services/user.service.js";
+
+import { EMAIL_TYPES } from "../common/constants/email-types.js";
 
 class UserController {
   async getAll(req, res) {
@@ -37,6 +41,17 @@ class UserController {
     try {
       const user = await userService.create({
         user: req.body,
+      });
+
+      await mailService.sendMail({
+        to: user.email,
+        subject: "Bienvenido a Coder Eats!",
+        type: EMAIL_TYPES.WELCOME,
+      });
+
+      await smsService.sendMessage({
+        to: "+541134853029",
+        message: `Bienvenido a Coder Eats, ${user.name}!`,
       });
 
       res.status(201).json({ user });
